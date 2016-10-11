@@ -1,0 +1,8 @@
+version: '2'
+    service:
+        workspace:
+            build:
+        php-fpm:
+            build:
+        mysql:
+            build:
