@@ -75,8 +75,8 @@ RUN if [ ${INSTALL_OPCACHE} = true ]; then \
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
 
 # Adicionado arquivo do php.ini
-#ADD ./php.ini /usr/local/etc/php/conf.d
-#ADD ./www.conf /usr/local/etc/php-fpm.d/
+ADD ./php.ini /usr/local/etc/php/conf.d
+ADD ./www.conf /usr/local/etc/php-fpm.d/
 
 RUN rm -r /var/lib/apt/lists/*
 

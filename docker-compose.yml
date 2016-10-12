@@ -3,6 +3,7 @@ version: '2'
 services:
     # Container do PFP-FPM com suas com suas configurações
     php-fpm:
+        container_name: php-fpm
         build:
             context: ./images/php-fpm/56
             args:
