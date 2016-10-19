@@ -1,19 +1,18 @@
 version: '2'
 
 services:
-    # Container do PFP-FPM com suas com suas configurações
-    # php-fpm:
-    #     container_name: php-fpm
-    #     build:
-    #         context: ./images/php-fpm/56
-    #         args:
-    #             - INSTALL_XDEBUG=false
-    #             - INSTALL_MONGO=false
-    #             - INSTALL_ZIP_ARCHIVE=false
-    #             - INSTALL_MEMCACHED=false
-    #             - INSTALL_OPCACHE=true
-    #     ports:
-    #         - "9002:9000"
+    php-fpm:
+        container_name: php-fpm
+        build:
+            context: ./images/php-fpm/56
+            args:
+                - INSTALL_XDEBUG=false
+                - INSTALL_MONGO=false
+                - INSTALL_ZIP_ARCHIVE=false
+                - INSTALL_MEMCACHED=false
+                - INSTALL_OPCACHE=true
+        ports:
+            - "9002:9000"
     mysql:
         container_name: mysql
         build:
@@ -21,7 +20,7 @@ services:
         ports:
             - "3307:3306"
         volumes_from:
-            - volumes-data            
+            - volumes-data
         environment:
             MYSQL_ROOT_PASSWORD: 123456
     volumes-data:
@@ -29,3 +28,22 @@ services:
         image: tianon/true
         volumes:
             - ./data/mysql:/var/lib/mysql
+    nginx:
+        restart: always
+        container_name: nginx
+        build:
+            context: ./images/nginx
+        volumes_from:
+            - volumes_source
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - ./logs/nginx/:/var/log/nginx
+        links:
+            - php-fpm:php
+    volumes_source:
+        image: tianon/true
+        container_name: volumes-source
+        volumes:
+            - ../:/var/www/
