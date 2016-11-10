@@ -44,6 +44,13 @@ services:
             - "${MONGO_PORT}:27017"
         volumes_from:
             - volumes-data
+    redis:
+        container_name: redis
+        build: ./images/redis
+        volumes_from:
+            - volumes-data
+        ports:
+            - "${REDIS_PORT}:6379"
     nginx:
         restart: always
         container_name: nginx
@@ -63,7 +70,8 @@ services:
         image: tianon/true
         volumes:
             - ./data/mysql:/var/lib/mysql
-            - ./data/mongo:/data/configdb
+            - ./data/mongo:/data/db
+            - ./data/redis:/data
     volumes-source:
         image: tianon/true
         container_name: volumes-source
