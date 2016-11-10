@@ -1,10 +1,22 @@
-#Autodocker
+## Autodocker
 
-Ambiente de desenvolvimento utilizando docker PHP-Fpm (5.6.7.0) + MySQL + Nginx
+### O que é Autodocker ?
 
-[PHP 5.6-fpm](https://github.com/docker-library/php/blob/81ceba13187f9488f1ab25683575ac1b62fea772/5.6/fpm/Dockerfile)
+Autodocker é um **SIMPLES** ambiente de desenvolvimento em **PHP** utilizando **docker**.
 
-[MySQL: Latest](https://github.com/docker-library/mysql/blob/a6f4c23621421bb708ad44616532d3d1cf44f6bf/5.7/Dockerfile)
+### Containers
 
-[Nginx: Latest](https://github.com/nginxinc/docker-nginx/blob/11fc019b2be3ad51ba5d097b1857a099c4056213/mainline/jessie/Dockerfile)
+- PHP-FPM (5.6, 7.0)
+    - Composer
+    - PHPUnit
+- Node
+- [Nginx Latest](https://github.com/nginxinc/docker-nginx/blob/11fc019b2be3ad51ba5d097b1857a099c4056213/mainline/jessie/Dockerfile)
+- [Mysql Latest](https://github.com/docker-library/mysql/blob/a6f4c23621421bb708ad44616532d3d1cf44f6bf/5.7/Dockerfile)
+- Redis
+- Mongo
 
+
+### Requisitos
+- Git
+- Docker
+- Docker Compose
