@@ -10,8 +10,10 @@ Autodocker é um **SIMPLES** ambiente de desenvolvimento em **PHP** utilizando *
     - Composer
     - PHPUnit
 - Node
-- [Nginx Latest](https://github.com/nginxinc/docker-nginx/blob/11fc019b2be3ad51ba5d097b1857a099c4056213/mainline/jessie/Dockerfile)
-- [Mysql Latest](https://github.com/docker-library/mysql/blob/a6f4c23621421bb708ad44616532d3d1cf44f6bf/5.7/Dockerfile)
+    - NPM
+    - Bower
+- Nginx
+- Mysql
 - Redis
 - Mongo
 
@@ -19,4 +21,8 @@ Autodocker é um **SIMPLES** ambiente de desenvolvimento em **PHP** utilizando *
 ### Requisitos
 - Git
 - Docker
-- Docker Compose
+- Docker Composer
+
+
+### Instalação
+Em construção
