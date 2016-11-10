@@ -36,11 +36,10 @@ mv .env-example .env
 3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambiente para cada contêiner.
 
 
-
->**PHP_FPM_PORT**: *Aponte em qual porta o seu **php-fpm** vai ser executado.*
-	```
-	PHP_FPM_PORT=9002
-	```
+**PHP_FPM_PORT**: *Aponte em qual porta o seu **php-fpm** vai ser executado.*
+```
+PHP_FPM_PORT=9002
+```
 
 **PHP_FPM_INSTALL_XDEBUG**:  *Habilita a extensão do **XDEBUG** no container do PHP-FPM*
 ```
