@@ -35,25 +35,33 @@ mv .env-example .env
 ```
 3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambiente para cada contêiner.
 
-Exemplo:
 
-*Apontando em qual porta seu php-fpm vai ser executada na sua maquina.*
 
-```
-PHP_FPM_PORT=9002
-```
+>**PHP_FPM_PORT**: *Aponte em qual porta o seu **php-fpm** vai ser executado.*
+	```
+	PHP_FPM_PORT=9002
+	```
 
-*Por padrão esse endereço esta apontando para a pasta workspace que fica dentro da pasta do **autodocker**, mas você pode colocar seu próprio endereço.
-*
-```
-PATH_APP=./workspace
-```
-
-As extensões também podem ser habilitada aqui.
+**PHP_FPM_INSTALL_XDEBUG**:  *Habilita a extensão do **XDEBUG** no container do PHP-FPM*
 ```
 PHP_FPM_INSTALL_XDEBUG=false
+```
+
+**PHP_FPM_INSTALL_MONGO**: *Habilita a extensão do **MONGODB** no container do PHP-FPM*
+```
 PHP_FPM_INSTALL_MONGO=false
+```
+
+**PHP_FPM_INSTALL_ZIP_ARCHIVE**: *Habilita a extensão **ZIP** no container do PHP-FPM*
+```
 PHP_FPM_INSTALL_ZIP_ARCHIVE=false
-PHP_FPM_INSTALL_MEMCACHED=false
+```
+**PHP_FPM_INSTALL_OPCACHE**: *Habilita a extensão **OPCACHE** no container do PHP-FPM*
+```
 PHP_FPM_INSTALL_OPCACHE=true
+```
+
+**PATH_APP**: *Endereço de pasta onde fica todas suas aplicações*
+```
+PATH_APP=./workspace
 ```
