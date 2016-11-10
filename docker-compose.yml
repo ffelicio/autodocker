@@ -6,13 +6,13 @@ services:
         build:
             context: ./images/php-fpm/56
             args:
-                - INSTALL_XDEBUG=false
-                - INSTALL_MONGO=false
-                - INSTALL_ZIP_ARCHIVE=false
-                - INSTALL_MEMCACHED=false
-                - INSTALL_OPCACHE=true
-                - PUID=1000
-                - PGID=1000                
+                - INSTALL_XDEBUG=${PHP_FPM_INSTALL_XDEBUG}
+                - INSTALL_MONGO=${PHP_FPM_INSTALL_MONGO}
+                - INSTALL_ZIP_ARCHIVE=${PHP_FPM_INSTALL_ZIP_ARCHIVE}
+                - INSTALL_MEMCACHED=${PHP_FPM_INSTALL_MEMCACHED}
+                - INSTALL_OPCACHE=${PHP_FPM_INSTALL_OPCACHE}
+                - PUID=${PHP_FPM_PUID}
+                - PGID=${PHP_FPM_PGID}
         ports:
             - "${PHP_FPM_PORT}:9000"
         volumes_from:
