@@ -36,7 +36,7 @@ mv .env-example .env
 3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambiente para cada contêiner.
 
 
-**PHP_FPM_PORT**: *Aponte em qual porta o seu **PHP-FPM** vai ser executado.*
+**PHP_FPM_PORT**: *Aponte em qual porta o seu* **PHP-FPM** *vai ser executado.*
 ```
 PHP_FPM_PORT=9002
 ```
