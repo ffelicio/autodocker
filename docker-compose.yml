@@ -17,6 +17,15 @@ services:
             - "${PHP_FPM_PORT}:9000"
         volumes_from:
             - volumes-source
+    node:
+        container_name: node
+        build:
+            context: ./images/node
+            args:
+                - PUID=${PHP_FPM_PUID}
+                - PGID=${PHP_FPM_PGID}
+        volumes_from:
+            - volumes-source
     mysql:
         container_name: mysql
         build:
