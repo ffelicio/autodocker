@@ -82,8 +82,8 @@ RUN mv composer.phar /usr/local/bin/composer
 # Cria um usuário não root para criação de arquivos
 ARG PUID=1000
 ARG PGID=1000
-RUN groupadd -g $PGID php-app && \
-    useradd -u $PUID -g php-app -m php-app
+RUN groupadd -g $PGID autodocker && \
+    useradd -u $PUID -g autodocker -m autodocker
 
 # Adicionado arquivo do php.ini
 ADD ./php.ini /usr/local/etc/php/conf.d
