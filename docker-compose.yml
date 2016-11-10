@@ -11,6 +11,8 @@ services:
                 - INSTALL_ZIP_ARCHIVE=false
                 - INSTALL_MEMCACHED=false
                 - INSTALL_OPCACHE=true
+                - PUID=1000
+                - PGID=1000                
         ports:
             - "9002:9000"
     mysql:

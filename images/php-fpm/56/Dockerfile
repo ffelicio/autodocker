@@ -38,10 +38,9 @@ RUN if [ ${INSTALL_XDEBUG} = true ]; then \
     pecl install xdebug && \
     docker-php-ext-enable xdebug \
 ;fi
-
 # Copiando extensão do xdebug para o cointainer
 COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-#ADD ./../xdebug.ini /usr/local/etc/php/conf.d
+
 
 # Instalação opcional da extensão do mongodb
 ARG INSTALL_MONGO=true
@@ -70,9 +69,21 @@ RUN if [ ${INSTALL_OPCACHE} = true ]; then \
     docker-php-ext-install opcache && \
     docker-php-ext-enable opcache \
 ;fi
-
 # Copiando arquivo de configuração para o container
 COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
+# Instalação do composer
+RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
+    php -r "if (hash_file('SHA384', 'composer-setup.php') === 'aa96f26c2b67226a324c27919f1eb05f21c248b987e6195cad9690d5c1ff713d53020a02ac8c217dbf90a7eacc9d141d') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" && \
+    php composer-setup.php && \
+    php -r "unlink('composer-setup.php');"
+RUN mv composer.phar /usr/local/bin/composer
+
+# Cria um usuário não root para criação de arquivos
+ARG PUID=1000
+ARG PGID=1000
+RUN groupadd -g $PGID php-app && \
+    useradd -u $PUID -g php-app -m php-app
 
 # Adicionado arquivo do php.ini
 ADD ./php.ini /usr/local/etc/php/conf.d
