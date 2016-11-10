@@ -25,18 +25,13 @@ services:
             - volumes-data
         environment:
             MYSQL_ROOT_PASSWORD: 123456
-    volumes-data:
-        container_name: volume-data
-        image: tianon/true
-        volumes:
-            - ./data/mysql:/var/lib/mysql
     nginx:
         restart: always
         container_name: nginx
         build:
             context: ./images/nginx
         volumes_from:
-            - volumes_source
+            - volumes-source
         ports:
             - "80:80"
             - "443:443"
@@ -44,7 +39,12 @@ services:
             - ./logs/nginx/:/var/log/nginx
         links:
             - php-fpm:php
-    volumes_source:
+    volumes-data:
+        container_name: volume-data
+        image: tianon/true
+        volumes:
+            - ./data/mysql:/var/lib/mysql
+    volumes-source:
         image: tianon/true
         container_name: volumes-source
         volumes:
