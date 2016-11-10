@@ -4,7 +4,7 @@
 
 Autodocker é um **SIMPLES** ambiente de desenvolvimento em **PHP** utilizando **docker**.
 
-### Containers
+### Contêineres
 
 - PHP-FPM (5.6, 7.0)
     - Composer
@@ -33,7 +33,7 @@ git clone git@github.com:danilosilva87/autodocker.git
 ```shell
 mv .env-example .env
 ```
-3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambimente para cada container.
+3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambiente para cada contêiner.
 
 Exemplo:
 
@@ -43,7 +43,7 @@ Exemplo:
 PHP_FPM_PORT=9002
 ```
 
-*Por padrão esse endereço esta apontando para a pasta workspace que fica dentro da pasta do **autodocker**, mas você pode colocar seu proprio endereço.
+*Por padrão esse endereço esta apontando para a pasta workspace que fica dentro da pasta do **autodocker**, mas você pode colocar seu próprio endereço.
 *
 ```
 PATH_APP=./workspace
