@@ -41,12 +41,12 @@ mv .env-example .env
 PHP_FPM_PORT=9002
 ```
 
-**PHP_FPM_INSTALL_XDEBUG**:  *Habilita a extensão do XDEBUG no container do PHP-FPM*
+**PHP_FPM_INSTALL_XDEBUG**:  *Habilita a extensão do* **XDEBUG** *no container do PHP-FPM*
 ```
 PHP_FPM_INSTALL_XDEBUG=false
 ```
 
-**PHP_FPM_INSTALL_MONGO**: *Habilita a extensão do MONGODB no container do PHP-FPM*
+**PHP_FPM_INSTALL_MONGO**: *Habilita a extensão do* **MONGODB** *no container do PHP-FPM*
 ```
 PHP_FPM_INSTALL_MONGO=false
 ```
