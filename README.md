@@ -41,7 +41,6 @@ Exemplo:
 
 ```
 PHP_FPM_PORT=9002
-
 ```
 
 *Por padrão esse endereço esta apontando para a pasta workspace que fica dentro da pasta do **autodocker**, mas você pode colocar seu proprio endereço.
