@@ -76,4 +76,4 @@ services:
         image: tianon/true
         container_name: volumes-source
         volumes:
-            - ${PATH_APP}:${PATH_CONTAINER}
+            - ${PATH_APP}:/var/www/html/
