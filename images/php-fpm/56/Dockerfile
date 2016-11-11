@@ -38,8 +38,6 @@ RUN if [ ${INSTALL_XDEBUG} = true ]; then \
     pecl install xdebug && \
     docker-php-ext-enable xdebug \
 ;fi
-# Copiando extensão do xdebug para o cointainer
-COPY ./xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 
 
 # Instalação opcional da extensão do mongodb
@@ -56,21 +54,20 @@ RUN if [ ${INSTALL_ZIP_ARCHIVE} = true ]; then \
     docker-php-ext-enable zip \
 ;fi
 
-# Instalação opcional da extensão do memcached
-ARG INSTALL_MEMCACHED=true
-RUN if [ ${INSTALL_MEMCACHED} = true ]; then \
-    pecl install memcached && \
-    docker-php-ext-enable memcached \
-;fi
-
 # Instalação opcional da extensão do opcache
 ARG INSTALL_OPCACHE=true
 RUN if [ ${INSTALL_OPCACHE} = true ]; then \
     docker-php-ext-install opcache && \
     docker-php-ext-enable opcache \
 ;fi
-# Copiando arquivo de configuração para o container
-COPY ./opcache.ini /usr/local/etc/php/conf.d/opcache.ini
+
+# Cria um usuário não root para criação de arquivos
+ARG PUID=1000
+ARG PGID=1000
+RUN groupadd -g $PGID autodocker && \
+    useradd -u $PUID -g autodocker -m autodocker
+
+USER autodocker
 
 # Instalação do composer
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" && \
@@ -79,13 +76,8 @@ RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" &&
     php -r "unlink('composer-setup.php');"
 RUN mv composer.phar /usr/local/bin/composer
 
-# Cria um usuário não root para criação de arquivos
-ARG PUID=1000
-ARG PGID=1000
-RUN groupadd -g $PGID autodocker && \
-    useradd -u $PUID -g autodocker -m autodocker
-
 # Adicionado arquivo do php.ini
+USER root
 ADD ./php.ini /usr/local/etc/php/conf.d
 ADD ./www.conf /usr/local/etc/php-fpm.d/
 
