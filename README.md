@@ -35,9 +35,9 @@ cp .env-example .env
 ```
 3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambiente para cada contêiner.
 
-Nesse arquivo, esta todas as variáveis relacionada a cada container que foi definido em seu arquivo `docker-compose.yml`.
+No arquivo `.env` esta todas as variáveis relacionada a cada container que foi definido em seu arquivo `docker-compose.yml`.
 
-> *Todas as variáveis estão com um valor padrão já definido, mas você pode alterar todos os valores*.
+> *Todas as variáveis estão com um valor padrão já definidos, mas você pode alterar todos os valores*.
 
 Segue abaixo uma descrição de cada variável em seu arquivo `.env`
 
