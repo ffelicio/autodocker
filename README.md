@@ -31,12 +31,17 @@ git clone git@github.com:danilosilva87/autodocker.git
 ```
 2 - Altere o nome do arquivo **.env-example** para **.env** que esta na raiz do projeto **autodocker**
 ```shell
-mv .env-example .env
+cp .env-example .env
 ```
 3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambiente para cada contêiner.
 
+Nesse arquivo, esta todas as variáveis relacionada a cada container que foi definido em seu arquivo `docker-compose.yml`.
 
-**PHP_FPM_PORT**: *Aponte em qual porta o seu* **PHP-FPM** *vai ser executado.*
+> *Todas as variáveis estão com um valor padrão já definido, mas você pode alterar todos os valores*.
+
+Segue abaixo uma descrição de cada variável em seu arquivo `.env`
+
+**PHP_FPM_PORT**: *Aponte em qual porta o seu* **PHP-FPM** *vai ser executado.*	
 ```
 PHP_FPM_PORT=9002
 ```
