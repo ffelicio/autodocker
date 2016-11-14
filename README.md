@@ -27,7 +27,7 @@ Autodocker é um **SIMPLES** ambiente de desenvolvimento em **PHP** utilizando *
 ### Instalação e configuração do ambiente
 1 - Clone esse repositório para qualquer diretório da sua maquina.
 ```shell
-git clone git@github.com:danilosilva87/autodocker.git
+git clone git@code.autodoc.com.br:infra/autodocker.git
 ```
 2 - Altere o nome do arquivo **.env-example** para **.env** que esta na raiz do projeto **autodocker**
 ```shell
