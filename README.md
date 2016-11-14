@@ -56,11 +56,11 @@ PHP_FPM_INSTALL_XDEBUG=false
 PHP_FPM_INSTALL_MONGO=false
 ```
 
-**PHP_FPM_INSTALL_ZIP_ARCHIVE**: *Habilita a extensão ZIP no container do PHP-FPM*
+**PHP_FPM_INSTALL_ZIP_ARCHIVE**: *Habilita a extensão* **ZIP** *no container do PHP-FPM*
 ```
 PHP_FPM_INSTALL_ZIP_ARCHIVE=false
 ```
-**PHP_FPM_INSTALL_OPCACHE**: *Habilita a extensão OPCACHE no container do PHP-FPM*
+**PHP_FPM_INSTALL_OPCACHE**: *Habilita a extensão* **OPCACHE** *no container do PHP-FPM*
 ```
 PHP_FPM_INSTALL_OPCACHE=true
 ```
