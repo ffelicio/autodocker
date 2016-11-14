@@ -4,7 +4,8 @@ MAINTAINER Danilo Correa <danilosilva87@gmail.com>
 
 # Instalando curl, libmemcached-dev, libz-dev, libjpeg-dev, libpng12-dev, libfreetype6-dev, libssl-dev, libmcrypt-dev
 RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y --no-install-recommends \    
+        git \
         curl \
         libmemcached-dev \
         libz-dev \
