@@ -10,8 +10,9 @@ services:
                 - INSTALL_MONGO=${PHP_FPM_INSTALL_MONGO}
                 - INSTALL_ZIP_ARCHIVE=${PHP_FPM_INSTALL_ZIP_ARCHIVE}
                 - INSTALL_OPCACHE=${PHP_FPM_INSTALL_OPCACHE}
-                - PUID=${PHP_FPM_PUID}
-                - PGID=${PHP_FPM_PGID}
+                - USER_PUID=${USER_PUID}
+                - USER_PGID=${USER_PGID}
+                - USER_NAME=${USER_NAME}
         ports:
             - "${PHP_FPM_PORT}:9000"
         volumes_from:
@@ -21,8 +22,9 @@ services:
         build:
             context: ./images/node
             args:
-                - PUID=${PHP_FPM_PUID}
-                - PGID=${PHP_FPM_PGID}
+                - USER_PUID=${USER_PUID}
+                - USER_PGID=${USER_PGID}
+                - USER_NAME=${USER_NAME}
         volumes_from:
             - volumes-source
     mysql:
@@ -55,6 +57,10 @@ services:
         container_name: nginx
         build:
             context: ./images/nginx
+            args:
+                - USER_PUID=${USER_PUID}
+                - USER_PGID=${USER_PGID}
+                - USER_NAME=${USER_NAME}            
         volumes_from:
             - volumes-source
         ports:
