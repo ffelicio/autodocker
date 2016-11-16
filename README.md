@@ -63,7 +63,41 @@ PHP_FPM_INSTALL_ZIP_ARCHIVE=false
 PHP_FPM_INSTALL_OPCACHE=true
 ```
 
+**USER_NAME**: *Criação de um usuário padrão para alguns contêineres*
+```
+USER_NAME=autodocker
+```
+
 **PATH_APP**: *Endereço de pasta onde fica todas suas aplicações*
 ```
 PATH_APP=./workspace
+```
+
+4 - As imagens de cada container esta localizado na pasta `imagens/$container`. Acesse cada uma e renomeie os arquivos de configurações.
+
+PHP FPM 5.6
+```
+cp images/php-fpm/56/example-php.ini php.ini;
+cp images/php-fpm/56/example-www.conf www.conf;
+```
+PHP FPM 7.0
+```
+cp images/php-fpm/70/example-php.ini php.ini;
+cp images/php-fpm/70/example-www.conf www.conf;
+```
+Nginx
+```
+cp images/nginx/example-nginx.conf nginx.conf;
+```
+Redis
+```
+cp images/redis/example-redis.conf redis.conf;
+```
+Mongo
+```
+cp images/mongo/example-mongo.conf mongo.conf;
+```
+Mysql
+```
+cp images/mysql/my-example.cnf my.cnf;
 ```
