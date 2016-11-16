@@ -104,7 +104,7 @@ cp images/mysql/my-example.cnf my.cnf;
 
 ## Comandos
 
-Depois de fazer todas as configurações necessárias, finalmente você pode subir os contêineres = D
+Depois de fazer todas as configurações necessárias, finalmente você pode subir os contêineres = D.
 
 Subindo todos os contêineres de uma vez:
 ```
@@ -120,3 +120,7 @@ Visualizando contêineres que estão sendo executados:
 ```
 docker-compose ps
 ```
+
+##Licença
+
+O **Autodocker** é um software livre distribuído sob os termos da licença do MIT.
