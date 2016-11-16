@@ -33,7 +33,7 @@ cp .env-example .env
 ```
 3 - Abra seu arquivo **.env** em seu editor favorito e configure as variáveis de ambiente para cada contêiner.
 
-No arquivo `.env` esta todas as variáveis relacionada a cada container que foi definido em seu arquivo `docker-compose.yml`.
+No arquivo `.env` esta todas as variáveis relacionada a cada contêiner que foi definido em seu arquivo `docker-compose.yml`.
 
 > *Todas as variáveis estão com um valor padrão já definidos, mas você pode alterar todos os valores*.
 
@@ -73,31 +73,50 @@ USER_NAME=autodocker
 PATH_APP=./workspace
 ```
 
-4 - As imagens de cada container esta localizado na pasta `imagens/$container`. Acesse cada uma e renomeie os arquivos de configurações.
+4 - As imagens de cada contêiner esta localizado na pasta `imagens/$container`. Acesse cada uma e renomeie os arquivos de configurações.
 
-PHP FPM 5.6
+**PHP FPM 5.6**
 ```
 cp images/php-fpm/56/example-php.ini php.ini;
 cp images/php-fpm/56/example-www.conf www.conf;
 ```
-PHP FPM 7.0
+**PHP FPM 7.0**
 ```
 cp images/php-fpm/70/example-php.ini php.ini;
 cp images/php-fpm/70/example-www.conf www.conf;
 ```
-Nginx
+**Nginx**
 ```
 cp images/nginx/example-nginx.conf nginx.conf;
 ```
-Redis
+**Redis**
 ```
 cp images/redis/example-redis.conf redis.conf;
 ```
-Mongo
+**Mongo**
 ```
 cp images/mongo/example-mongo.conf mongo.conf;
 ```
-Mysql
+**Mysql**
 ```
 cp images/mysql/my-example.cnf my.cnf;
+```
+
+## Comandos
+
+Depois de fazer todas as configurações necessárias, finalmente você pode subir os contêineres = D
+
+Subindo todos os contêineres de uma vez:
+```
+docker-compose up
+```
+
+Subindo contêineres especificos:
+```
+docker-compose up mysql mongo
+```
+
+Visualizando contêineres que estão sendo executados:
+```
+docker-compose ps
 ```
