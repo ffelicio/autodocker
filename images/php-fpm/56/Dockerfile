@@ -14,7 +14,10 @@ RUN apt-get update && \
         libpng12-dev \
         libfreetype6-dev \
         libssl-dev \
-        libmcrypt-dev
+        libmcrypt-dev \
+        libxrender1 \
+        libfontconfig1 \
+        libxext6
 
 # Instalando extensão php mycrypt
 RUN docker-php-ext-install mcrypt
