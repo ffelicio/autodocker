@@ -39,7 +39,7 @@ A instalação é muito facil, basta você dar um `git clonar` desse repositóri
 
 <a name="variaveis-de-ambiente"></a>
 ## Variáveis de ambiente
-Para configurar as variáveis de ambiente é preciso seguir os seguites passas:
+Para configurar as variáveis de ambiente é preciso seguir os seguites passos:
 
 Execute o seguinte comando para gerar uma copia do arquivo `.env-example` que esta na raiz do **autodocker**: 
 
