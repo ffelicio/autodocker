@@ -45,7 +45,7 @@ Para configurar as variáveis de ambiente é preciso seguir os seguites passos:
 Execute o seguinte comando para gerar uma copia do arquivo `.env-example` que esta na raiz do **autodocker**: 
 
 ``` shell
-cp .env-example .env
+cp .env-example .env;
 ```
 
 No arquivo `.env` esta todas as variáveis relacionada a cada container que foi definido em seu arquivo `docker-compose.yml`.
