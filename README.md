@@ -75,5 +75,3 @@ No arquivo `.env` esta todas as variáveis relacionada a cada container que foi 
 ## Licença
 
 O `autodocker` é um software livre distribuído sob os termos da licença do MIT.
-
-

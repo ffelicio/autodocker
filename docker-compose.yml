@@ -4,7 +4,7 @@ services:
     php-fpm:
         container_name: php-fpm
         build:
-            context: ./images/php-fpm/56
+            context: ./images/php-fpm/${PHP_FPM_VERSION}
             args:
                 - INSTALL_XDEBUG=${PHP_FPM_INSTALL_XDEBUG}
                 - INSTALL_MONGO=${PHP_FPM_INSTALL_MONGO}
