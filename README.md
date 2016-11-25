@@ -1,5 +1,4 @@
 ## Autodocker
----
 
 O `autodocker` é um ambiente de desenvolvimento para `PHP` utilizando `DOCKER`.
 
@@ -37,7 +36,7 @@ A instalação é muito facil, basta você dar um `git clonar` desse repositóri
 
 <a name="estrutura-de-pastas"></a>
 ## Estrutura de pastas
-
+...
 
 <a name="variaveis-de-ambiente"></a>
 ## Variáveis de ambiente
