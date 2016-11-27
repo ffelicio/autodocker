@@ -1,4 +1,4 @@
-FROM redis:latest
+FROM redis:3.2.5-alpine
 
 MAINTAINER Danilo Correa <danilosilva87@gmail.com>
 

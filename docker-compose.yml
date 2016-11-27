@@ -21,10 +21,6 @@ services:
         container_name: node
         build:
             context: ./images/node
-            args:
-                - USER_PUID=${USER_PUID}
-                - USER_PGID=${USER_PGID}
-                - USER_NAME=${USER_NAME}
         volumes_from:
             - volumes-source
     mysql:
@@ -53,7 +49,6 @@ services:
         ports:
             - "${REDIS_PORT}:6379"
     nginx:
-        restart: always
         container_name: nginx
         build:
             context: ./images/nginx

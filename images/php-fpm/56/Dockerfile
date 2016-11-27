@@ -1,12 +1,10 @@
-FROM php:5.6-fpm
+FROM php:5.6.28-fpm-alpine
 
 MAINTAINER Danilo Correa <danilosilva87@gmail.com>
 
 # Instalando curl, libmemcached-dev, libz-dev, libjpeg-dev, libpng12-dev, libfreetype6-dev, libssl-dev, libmcrypt-dev
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \    
+RUN apk add --no-cache --virtual \    
         git \
-        curl \
         libmemcached-dev \
         libz-dev \
         libpq-dev \
@@ -29,12 +27,7 @@ RUN docker-php-ext-install pdo_mysql
 RUN docker-php-ext-install pdo_pgsql
 
 # Instalando PHP biblioteca gd
-RUN docker-php-ext-install gd && \
-    docker-php-ext-configure gd \
-        --enable-gd-native-ttf \
-        --with-jpeg-dir=/usr/lib \
-        --with-freetype-dir=/usr/include/freetype2 && \
-    docker-php-ext-install gd
+RUN docker-php-ext-install gd
 
 # Instalação opcional da extensão do xdebug
 ARG INSTALL_XDEBUG=true
@@ -65,12 +58,12 @@ RUN if [ ${INSTALL_OPCACHE} = true ]; then \
     docker-php-ext-enable opcache \
 ;fi
 
-# Cria um usuário não root para criação de arquivos
 ARG USER_PUID=1000
 ARG USER_PGID=1000
 ARG USER_NAME=${USER_NAME}
-RUN groupadd -g $USER_PGID $USER_NAME && \
-    useradd -u $USER_PUID -g $USER_NAME -m $USER_NAME        
+
+RUN addgroup -g $USER_PGID -S $USER_NAME
+RUN adduser -u $USER_PUID $USER_NAME -G $USER_NAME -D
 
 
 # Instalação do composer
@@ -85,7 +78,5 @@ RUN chown -R autodocker:autodocker /usr/local/bin/composer
 # Adicionado arquivo do php.ini
 ADD ./php.ini /usr/local/etc/php/conf.d
 ADD ./www.conf /usr/local/etc/php-fpm.d/
-
-RUN rm -r /var/lib/apt/lists/*
 
 CMD ["php-fpm"]
